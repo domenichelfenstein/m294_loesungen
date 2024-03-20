@@ -5,3 +5,21 @@
 
 ## Lösung Wetterstation
 [Playground](https://play.vuejs.org/#eNqdVVtu2zAQvMpCP7GbWI6dFi1c2X0ESdEESIsmRYFCP7K0shhLlEAubQeGbpMD9AzNxbp62U4tpEW+RHJmZ4fLJbW2PmSZvTBojSxH+0pkBBrJZBNXiiRLFcEaFIZH4KdJZggDyCFUaQIHHHTgSlf6qdQEPsZaGA3jgt0ZHHcbIPQihTJCQYw1Ih1XAnS6MJ5Ap1OH2gsvNggvYGC/6cIhnAy7NqXnYsX0YZf1GsU5xgshd9Uqpcc6PRi+PrEHr3YChb4205+o0v3YdWFIhH95ceC4W0HA2yKjJLjWhedaxVIOzMU9+AqFrAmuzNuyD9sLsZca3tXZYLTRLfVCI30SqQQ/8uQMO16SGkm108cyh2OoUPbiSqdfHTEfLk8Ikyz2CHkG4ESD8gvwA4lQafKKFCXUrzGHvGmM4Mee1mPXKmeuVYc5pOpRMY4mN6yOyuOqAB/WaeXK6TOyZQWT9XrTOXn++9cpE4JGsL9RfFr7fNNhbfI7/VdkOH9Ohsuy49rU614slC//T/m75OrCJwyVQJUZOW91vW3VPG/T5UFR/WociEWDTw0RN8Z7Pxb+nM+o7pDeoLs5KIAzDUuhApg/3MdsppGuYv+h1Cq0fLhXSauQ06/Msd9tt/FU013tfpoGd80lIlxRz4vFTI64LYpCva0vEoBdNV/NXIqAohG/EcfZquQAJJ6aCQ4slsAzlO7FUtSWKMaQ9qlBG1WJWbTDrUt02AzqiMpIr9Ct3DQRfP3KbVtHFml+FEIxs291KvntLUO5yPwsiBjVl6y4fNq1Ro2oa3lxnC4vyjVSBo+adT9Cf96yfqtXxZprfVWoUS34qm4wYotIFXx2fcVb3AGTNDDFxX4C/IY6jU35QJS0j0YGbHuHV7r9XP5BhJzd6LMVodTNpgqjZVFKvmvxv+T0ia1v7Z7YL5un1cr/AHzALzU=)
+
+## v-if v-for
+
+```
+<script setup>
+import { ref } from 'vue'
+const numbers = ref([ 1, 2, 3, 4 ])
+</script>
+
+<template>
+  <ul>
+    <li v-for="myNumber in numbers">
+      <span v-if="myNumber % 2 == 0">Gerade Nummer: {{ myNumber }}</span>
+      <span v-if="myNumber % 2 != 0">Ungerade Nummer: {{ myNumber }}</span>
+    </li>
+  </ul>
+</template>
+```
