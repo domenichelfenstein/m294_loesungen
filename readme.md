@@ -23,3 +23,78 @@ const numbers = ref([ 1, 2, 3, 4 ])
   </ul>
 </template>
 ```
+
+## Bitcoin-Investment (Zwischenlösung)
+```
+<script setup>
+import { ref, computed } from 'vue'
+
+const bitcoinPrice = 16914
+
+const investments = ref([
+  // { count: 4, price: 15000 },
+])
+
+const inputCount = ref('')
+const inputPrice = ref('')
+
+const kontostand = computed(() => {
+  let totalCount = 0;
+  for(let i=0;i<investments.value.length;i++) {
+    totalCount += investments.value[i].count
+  }
+  return totalCount
+})
+
+function add () {
+  investments.value.push({ count: inputCount.value, price: inputPrice.value })
+}
+</script>
+
+<template>
+  <h1>
+    Bitcoin-Investment-Rechner
+  </h1>
+  
+  <form @submit.prevent="add" class="investment-form box">
+    <h3>
+      Neues Investment erfassen
+    </h3>
+    <div class="flex">
+    	<div class="flex-1">
+        <label for="count">Anzahl gekaufte Bitcoins</label>
+    		<input type="number" id="count" v-model="inputCount">
+      </div>
+    	<div class="flex-1">
+        <label for="price">Bitcoin-Kurs</label>
+    		<input type="number" id="price" v-model="inputPrice">
+      </div>
+      <button type="submit">
+        Erfassen
+      </button>
+    </div>
+  </form>
+  
+  <div class="box">
+    <dl>
+      <dt>Dein Kontostand</dt>
+      <dd>{{ kontostand }} BTC</dd>
+      
+      <dt>Investiert</dt>
+      <dd>??? CHF</dd>
+      
+      <dt>Wert heute</dt>
+      <dd>??? CHF</dd>
+      
+      <dt>Gewinn</dt>
+      <dd>??? CHF</dd>
+    </dl>
+  </div>
+  
+  <ul class="box">
+    <li v-for="investment in investments">
+    	{{ investment.count }} BTC zum Preis von {{ investment.price }} Fr.
+    </li>
+  </ul>
+</template>
+```
