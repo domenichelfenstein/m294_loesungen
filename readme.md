@@ -113,3 +113,36 @@ function add () {
 
 ## Beispiel: Events und Properties
 [Playground](https://play.vuejs.org/#eNqVUk1PAjEQ/SuTxgQMhjV6I4tBkYMelIg36wF2Byjstk0/kGSz/91pYZEoIfG02/fevJl5bcXute5uPLIeS21mhHZg0Xl9x6UotTIOKjA4hxrmRpXQImnrQA2Vlw7Nnuom+3PwIxEAl5mS1kEWcOgHo/b1JZdpsmtFTejgsNTF1CGdANLlzd1EyEWBaUK/EWra9KJPn7P45QwG0zxvjp0OAUksaHwelZ/92wc6fbjZW6XJYTZ2xY62O5EWQI5zIXFUCmfbHy2ybH3Srg0+NkoHPDaJzFEKvzKYeeeUhEFWiGxNg10gmbaj5SVnUQO78EFQvFW1T7iuY3myq/+zgLN0HXOx6K6skrRCFcOitUstCjSv2gm6Ls56EJnATYtCfT1HzBmPVw2eLTFbn8BXdhswzsYGLZoNcnbg3NQskOIO9Gjyglv6P5Clyn1B6jPkG1pV+DDjTvbgZU5jH+nitE/xbdITerejrUNpm6XCoEFZRz1ndI/DM6v/jHvbvY11XNas/gb1Ng88)
+
+## Beispiel `fetch`
+```
+fetch("https://dummyjson.com/products/1")
+  .then(resonse => {
+    return resonse.json()
+  })
+  .then(json => {
+    msg.value = json.title
+  })
+  .catch(error => {
+    console.error("Hat nicht funktioniert", error)
+  })
+  .finally(() => {
+    console.log("fertig")
+  })
+```
+
+## Beispiel `async`/`await`
+```
+onMounted(async () => {
+  try {
+    const response = await fetch("https://dummyjson.com/products/1")
+    const json = await response.json()
+    msg.value = json.title
+  } catch (error) {
+    console.error("Hat nicht funktioniert", error)
+  }
+  finally {
+    console.log("fertig")
+  }
+})
+```
